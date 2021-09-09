@@ -1,13 +1,13 @@
 {
-  "$id": "confluence_confluencePagesConnector",
+  "$id": "confluenceBlogs_confluenceBlogsConnector",
   "$schema": "https://schema.yext.com/config/km/connector/v1",
-  "displayName": "Confluence Pages Connector",
-  "entityType": "confluence_Page",
+  "displayName": "Confluence Blogs Connector",
+  "entityType": "confluenceBlogs_BlogPost",
   "source": {
     "sourceConfig": {
       "apiPullConfig": {
         "requestType": "GET",
-        "url": "https://${{confludenceSubdomain}}.atlassian.net/wiki/rest/api/content?expand\u003dbody.view",
+        "url": "https://${{confluenceSubdomain}}.atlassian.net/wiki/rest/api/content?expand\u003dbody.view",
         "authentication": {
           "basicAuthentication": {
             "username": "${{api_username}}",
@@ -16,7 +16,8 @@
         },
         "headers": {},
         "queryParams": {
-          "expand": "body.view"
+          "expand": "body.view",
+          "type": "blogpost"
         },
         "dataFormat": "JSON"
       }
@@ -58,7 +59,7 @@
           {
             "columnHeader": "Type",
             "conditional": "EQUALS",
-            "conditionalInput": "page"
+            "conditionalInput": "blogpost"
           }
         ]
       }
@@ -85,7 +86,7 @@
     "customSchedule": {
       "timeZone": "America/New_York",
       "startDate": "2021-09-09",
-      "startTime": "15:00",
+      "startTime": "16:00",
       "frequencyType": "HOURLY"
     },
     "runMode": "DEFAULT"

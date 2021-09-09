@@ -1,5 +1,5 @@
 {
-  "$id": "confluence_blogPost",
+  "$id": "confluenceBlogs_blogPost",
   "$schema": "https://schema.yext.com/config/km/field-presentation/v1",
   "entityType": "confluence_BlogPost",
   "displayName": "Blog Post",
