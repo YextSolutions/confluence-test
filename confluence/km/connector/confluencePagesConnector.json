@@ -1,0 +1,93 @@
+{
+  "$id": "confluence_confluencePagesConnector",
+  "$schema": "https://schema.yext.com/config/km/connector/v1",
+  "displayName": "Confluence Pages Connector",
+  "entityType": "confluence_Page",
+  "source": {
+    "sourceConfig": {
+      "apiPullConfig": {
+        "requestType": "GET",
+        "url": "https://${{confludenceSubdomain}}.atlassian.net/wiki/rest/api/content?expand\u003dbody.view",
+        "authentication": {
+          "basicAuthentication": {
+            "username": "${{api_username}}",
+            "password": "${{api_password}}"
+          }
+        },
+        "headers": {},
+        "queryParams": {
+          "expand": "body.view"
+        },
+        "dataFormat": "JSON"
+      }
+    },
+    "baseSelector": {
+      "type": "JSON",
+      "header": "Entity Container",
+      "path": "results"
+    },
+    "selectors": [
+      {
+        "type": "JSON",
+        "header": "ID",
+        "path": "id"
+      },
+      {
+        "type": "JSON",
+        "header": "Title",
+        "path": "title"
+      },
+      {
+        "type": "JSON",
+        "header": "Body",
+        "path": "body.view.value"
+      },
+      {
+        "type": "JSON",
+        "header": "Type",
+        "path": "type"
+      }
+    ]
+  },
+  "transforms": [
+    {
+      "filterRows": {
+        "action": "KEEP",
+        "combinator": "AND",
+        "rules": [
+          {
+            "columnHeader": "Type",
+            "conditional": "EQUALS",
+            "conditionalInput": "page"
+          }
+        ]
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "field": "name",
+      "header": "Title",
+      "subfieldPath": []
+    },
+    {
+      "field": "entityId",
+      "header": "ID",
+      "subfieldPath": []
+    },
+    {
+      "field": "body",
+      "header": "Body",
+      "subfieldPath": []
+    }
+  ],
+  "scheduleConfig": {
+    "customSchedule": {
+      "timeZone": "America/New_York",
+      "startDate": "2021-09-09",
+      "startTime": "15:00",
+      "frequencyType": "HOURLY"
+    },
+    "runMode": "DEFAULT"
+  }
+}
