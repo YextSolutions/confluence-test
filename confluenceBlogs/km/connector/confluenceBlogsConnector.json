@@ -8,13 +8,9 @@
       "apiPullConfig": {
         "requestType": "GET",
         "url": "https://${{confluenceSubdomain}}.atlassian.net/wiki/rest/api/content?expand\u003dbody.view",
-        "authentication": {
-          "basicAuthentication": {
-            "username": "${{api_username}}",
-            "password": "${{api_password}}"
-          }
+        "headers": {
+          "Authorization": "basicAuthToken"
         },
-        "headers": {},
         "queryParams": {
           "expand": "body.view",
           "type": "blogpost"
