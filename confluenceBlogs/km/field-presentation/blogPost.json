@@ -22,6 +22,42 @@
         {
           "id": "entityId",
           "visibleOnAdd": true
+        },
+        {
+          "id": "landingPageUrl"
+        },
+        {
+          "id": "confluenceBlogs_createdDate"
+        },
+        {
+          "id": "confluenceBlogs_lastUpdatedDate"
+        },
+        {
+          "id": "confluenceBlogs_lastUpdatedBy"
+        },
+        {
+          "id": "confluenceBlogs_lastUpdatedFriendly"
+        },
+        {
+          "id": "confluenceBlogs_creatorName"
+        },
+        {
+          "id": "confluenceBlogs_creatorEmail"
+        },
+        {
+          "id": "confluenceBlogs_creatorAvatar"
+        },
+        {
+          "id": "confluenceBlogs_spaceID"
+        },
+        {
+          "id": "confluenceBlogs_spaceName"
+        },
+        {
+          "id": "confluenceBlogs_spaceURL"
+        },
+        {
+          "id": "keywords"
         }
       ]
     },

@@ -1,0 +1,13 @@
+{
+  "$id": "confluenceBlogs_lastUpdatedBy",
+  "$schema": "https://schema.yext.com/config/km/field/v1",
+  "displayName": "Last Updated By",
+  "group": "NONE",
+  "localization": "PRIMARY_ONLY",
+  "type": {
+    "stringType": {
+      "stereotype": "SIMPLE"
+    }
+  },
+  "typeId": "string"
+}
