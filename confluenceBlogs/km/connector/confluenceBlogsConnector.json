@@ -7,9 +7,9 @@
     "sourceConfig": {
       "apiPullConfig": {
         "requestType": "GET",
-        "url": "https://katonahtest.atlassian.net/wiki/rest/api/content?expand\u003dbody.view,childTypes.all,history,space,metadata.labels,history.lastUpdated",
+        "url": "https://${{confluenceSubdomain}}.atlassian.net/wiki/rest/api/content?expand\u003dbody.view,childTypes.all,history,space,metadata.labels,history.lastUpdated",
         "headers": {
-          "Authorization": "Basic ZHpmZXNqaWFuQGdtYWlsLmNvbTpDV3RmWUY2cHFnY1dKYVdib1NRaUZFNjM\u003d"
+          "Authorization": "Basic ${{base64EncodedToken}}"
         },
         "queryParams": {
           "expand": "body.view,childTypes.all,history,space,metadata.labels,history.lastUpdated",
