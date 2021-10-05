@@ -1,7 +1,7 @@
 {
   "$id": "confluenceBlogs_blogPost",
   "$schema": "https://schema.yext.com/config/km/field-presentation/v1",
-  "entityType": "confluenceBlogs_BlogPost",
+  "entityType": "confluenceBlogs_blogPost",
   "displayName": "Blog Post",
   "presentationEntries": [
     {

@@ -2,7 +2,7 @@
   "$id": "confluenceBlogs_confluenceBlogsConnector",
   "$schema": "https://schema.yext.com/config/km/connector/v1",
   "displayName": "Confluence Blogs Connector",
-  "entityType": "confluenceBlogs_BlogPost",
+  "entityType": "confluenceBlogs_blogPost",
   "source": {
     "sourceConfig": {
       "apiPullConfig": {
