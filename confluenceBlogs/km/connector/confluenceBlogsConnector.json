@@ -1,6 +1,6 @@
 {
   "$id": "confluenceBlogs_confluenceBlogsConnector",
-  "$schema": "https://schema.yext.com/config/km/connector/v1",
+  "$schema": "https://schema.yext.com/config/km/connector/v2",
   "displayName": "Confluence Blogs Connector",
   "entityType": "confluenceBlogs_blogPost",
   "source": {
