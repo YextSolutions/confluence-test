@@ -1,0 +1,21 @@
+{
+  "$id": "confluenceBlogs_blogPost.default",
+  "$schema": "https://schema.yext.com/config/km/field-eligibility-group/v1",
+  "name": "Confluence Blog Post-default",
+  "entityType": "confluenceBlogs_blogPost",
+  "fields": [
+    "body",
+    "landingPageUrl",
+    "confluenceBlogs_createdDate",
+    "confluenceBlogs_creatorAvatar",
+    "confluenceBlogs_creatorEmail",
+    "confluenceBlogs_creatorName",
+    "confluenceBlogs_lastUpdatedDate",
+    "confluenceBlogs_lastUpdatedBy",
+    "confluenceBlogs_lastUpdatedFriendly",
+    "confluenceBlogs_spaceID",
+    "confluenceBlogs_spaceName",
+    "confluenceBlogs_spaceURL",
+    "keywords"
+  ]
+}
