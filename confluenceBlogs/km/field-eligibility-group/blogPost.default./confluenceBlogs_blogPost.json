@@ -1,7 +1,7 @@
 {
-  "$id": "confluenceBlogs_blogPost.default",
+  "$id": "confluenceBlogs_blogPost",
   "$schema": "https://schema.yext.com/config/km/field-eligibility-group/v1",
-  "name": "Confluence Blog Post-default",
+  "name": "Confluence Blog Post",
   "entityType": "confluenceBlogs_blogPost",
   "fields": [
     "body",
