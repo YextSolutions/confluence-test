@@ -15,8 +15,7 @@
           "type":"blogpost"
           }
         }
-      }
-    },
+      },
     "selectors": [
       {
         "type": "JSON",
