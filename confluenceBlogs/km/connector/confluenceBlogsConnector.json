@@ -5,23 +5,17 @@
   "entityType": "confluenceBlogs_blogPost",
   "source": {
     "sourceConfig": {
-      "apiPullConfig": {
-        "requestType": "GET",
-        "url": "https://${{confluenceSubdomain}}.atlassian.net/wiki/rest/api/content?expand\u003dbody.view,childTypes.all,history,space,metadata.labels,history.lastUpdated",
-        "headers": {
-          "Authorization": "Basic ${{base64EncodedToken}}"
-        },
-        "queryParams": {
-          "expand": "body.view,childTypes.all,history,space,metadata.labels,history.lastUpdated",
-          "type": "blogpost"
-        },
-        "dataFormat": "JSON"
+      "nativeSourceConfig": {
+        "source": "confluence",
+        "operation": "fetchContent",
+        "inputs": {
+          "confluenceSubdomain": "${{confluenceSubdomain}}",
+          "username":"${{username}}",
+          "password":"${{password}}",
+          "type":"blogpost"
+          }
+        }
       }
-    },
-    "baseSelector": {
-      "type": "JSON",
-      "header": "Entity Container",
-      "path": "results"
     },
     "selectors": [
       {
