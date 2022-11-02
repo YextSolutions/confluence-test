@@ -15,7 +15,7 @@ To use this template, you'll need the following before install:
 # Installation Instructions
 If you are an existing Yext customer, you can install the Confluence Blogs Connector here <https://www.yext.com/s/me/apps/59263>
 
-If you are currently using a Yext sandbox account, you can install the Confluence Blogs Connector here <https://sandbox.yext.com/s/me/apps/2669966>.
+If you are currently using a Yext sandbox account, you can install the Confluence Blogs Connector here <https://sandbox.yext.com/s/me/apps/129437>.
 
 If you are not an existing customer, but interested in learning more, try out a free trial here for a production account, or sign up for Hitchhikers and get started with a sandbox account, here <https://hitchhikers.yext.com/>.
 
