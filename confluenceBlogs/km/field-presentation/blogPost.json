@@ -1,81 +1,81 @@
 {
-  "$id": "confluenceBlogs_blogPostPresentation",
-  "$schema": "https://schema.yext.com/config/km/field-presentation/v1",
-  "entityType": "confluenceBlogs_blogPost",
-  "displayName": "Blog Post",
-  "presentationEntries": [
-    {
-      "displayName": "Content",
-      "entryType": "DIVIDER"
-    },
-    {
-      "displayName": "Core Information",
-      "entryType": "SECTION",
-      "fields": [
+    "$id": "confluenceBlogs_blogPostPresentation",
+    "$schema": "https://schema.yext.com/config/km/field-presentation/v1",
+    "entityType": "confluenceBlogs_blogPost",
+    "displayName": "Blog Post",
+    "presentationEntries": [
         {
-          "id": "name",
-          "visibleOnAdd": true
+            "displayName": "Content",
+            "entryType": "DIVIDER"
         },
         {
-          "id": "body"
+            "displayName": "Core Information",
+            "entryType": "SECTION",
+            "fields": [
+                {
+                    "id": "name",
+                    "visibleOnAdd": true
+                },
+                {
+                    "id": "bodyV2"
+                },
+                {
+                    "id": "entityId",
+                    "visibleOnAdd": true
+                },
+                {
+                    "id": "landingPageUrl"
+                },
+                {
+                    "id": "confluenceBlogs_createdDate"
+                },
+                {
+                    "id": "confluenceBlogs_lastUpdatedDate"
+                },
+                {
+                    "id": "confluenceBlogs_lastUpdatedBy"
+                },
+                {
+                    "id": "confluenceBlogs_lastUpdatedFriendly"
+                },
+                {
+                    "id": "confluenceBlogs_creatorName"
+                },
+                {
+                    "id": "confluenceBlogs_creatorEmail"
+                },
+                {
+                    "id": "confluenceBlogs_creatorAvatar"
+                },
+                {
+                    "id": "confluenceBlogs_spaceID"
+                },
+                {
+                    "id": "confluenceBlogs_spaceName"
+                },
+                {
+                    "id": "confluenceBlogs_spaceURL"
+                },
+                {
+                    "id": "keywords"
+                }
+            ]
         },
         {
-          "id": "entityId",
-          "visibleOnAdd": true
+            "displayName": "Other",
+            "entryType": "DIVIDER"
         },
         {
-          "id": "landingPageUrl"
-        },
-        {
-          "id": "confluenceBlogs_createdDate"
-        },
-        {
-          "id": "confluenceBlogs_lastUpdatedDate"
-        },
-        {
-          "id": "confluenceBlogs_lastUpdatedBy"
-        },
-        {
-          "id": "confluenceBlogs_lastUpdatedFriendly"
-        },
-        {
-          "id": "confluenceBlogs_creatorName"
-        },
-        {
-          "id": "confluenceBlogs_creatorEmail"
-        },
-        {
-          "id": "confluenceBlogs_creatorAvatar"
-        },
-        {
-          "id": "confluenceBlogs_spaceID"
-        },
-        {
-          "id": "confluenceBlogs_spaceName"
-        },
-        {
-          "id": "confluenceBlogs_spaceURL"
-        },
-        {
-          "id": "keywords"
+            "displayName": "Internal Use Only",
+            "entryType": "SECTION",
+            "fields": [
+                {
+                    "id": "folder"
+                },
+                {
+                    "id": "labels"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "displayName": "Other",
-      "entryType": "DIVIDER"
-    },
-    {
-      "displayName": "Internal Use Only",
-      "entryType": "SECTION",
-      "fields": [
-        {
-          "id": "folder"
-        },
-        {
-          "id": "labels"
-        }
-      ]
-    }
-  ]
+    ]
 }

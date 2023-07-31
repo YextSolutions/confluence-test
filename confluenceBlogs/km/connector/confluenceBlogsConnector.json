@@ -1,217 +1,223 @@
 {
-  "$id": "confluenceBlogs_confluenceBlogsConnector",
-  "$schema": "https://schema.yext.com/config/km/connector/v2",
-  "displayName": "Confluence Blogs Connector",
-  "entityType": "confluenceBlogs_blogPost",
-  "source": {
-    "sourceConfig": {
-      "nativeSourceConfig": {
-        "source": "confluence",
-        "operation": "fetchContent",
-        "inputs": {
-          "confluenceSubdomain": "${{confluenceSubdomain}}",
-          "username":"${{username}}",
-          "password":"${{password}}",
-          "type":"blogpost"
-          }
-        }
-      },
-    "selectors": [
-      {
-        "type": "JSON",
-        "header": "ID",
-        "path": "id"
-      },
-      {
-        "type": "JSON",
-        "header": "Title",
-        "path": "title"
-      },
-      {
-        "type": "JSON",
-        "header": "Body",
-        "path": "body.view.value"
-      },
-      {
-        "type": "JSON",
-        "header": "Type",
-        "path": "type"
-      },
-      {
-        "type": "JSON",
-        "header": "Link",
-        "path": "_links.self"
-      },
-      {
-        "type": "JSON",
-        "header": "Last Updated Date",
-        "path": "history.lastUpdated.when"
-      },
-      {
-        "type": "JSON",
-        "header": "Last Updated By",
-        "path": "history.lastUpdated.by.displayName"
-      },
-      {
-        "type": "JSON",
-        "header": "Last Updated Friendly",
-        "path": "history.lastUpdated.friendlyWhen"
-      },
-      {
-        "type": "JSON",
-        "header": "Created Date",
-        "path": "history.createdDate"
-      },
-      {
-        "type": "JSON",
-        "header": "Creator Name",
-        "path": "history.createdBy.displayName"
-      },
-      {
-        "type": "JSON",
-        "header": "Creator Avatar",
-        "path": "history.createdBy.profilePicture.path"
-      },
-      {
-        "type": "JSON",
-        "header": "Creator Email",
-        "path": "history.createdBy.email"
-      },
-      {
-        "type": "JSON",
-        "header": "Space ID",
-        "path": "space.id"
-      },
-      {
-        "type": "JSON",
-        "header": "Space Name",
-        "path": "space.name"
-      },
-      {
-        "type": "JSON",
-        "header": "Space Link",
-        "path": "space._links.self"
-      },
-      {
-        "type": "JSON",
-        "header": "Labels",
-        "path": "metadata.labels.results[*].label"
-      }
-    ]
-  },
-  "transforms": [
-    {
-      "function": {
-        "inputHeaders": {
-          "headers": [
-            "Creator Avatar"
-          ]
+    "$id": "confluenceBlogs_confluenceBlogsConnector",
+    "$schema": "https://schema.yext.com/config/km/connector/v4",
+    "displayName": "Confluence Blogs Connector",
+    "entityTypes": [
+        "confluenceBlogs_blogPost"
+    ],
+    "source": {
+        "sourceConfig": {
+            "nativeSourceConfig": {
+                "source": "confluence",
+                "operation": "fetchContent",
+                "inputs": {
+                    "confluenceSubdomain": "${{confluenceSubdomain}}",
+                    "username": "${{username}}",
+                    "password": "${{password}}",
+                    "type": "blogpost"
+                }
+            }
         },
-        "plugin": "confluenceBlogs_createUrl",
-        "function": "createUrl"
-      }
+        "selectors": [
+            {
+                "type": "JSON",
+                "header": "ID",
+                "path": "id"
+            },
+            {
+                "type": "JSON",
+                "header": "Title",
+                "path": "title"
+            },
+            {
+                "type": "JSON",
+                "header": "Body",
+                "path": "body.view.value"
+            },
+            {
+                "type": "JSON",
+                "header": "Type",
+                "path": "type"
+            },
+            {
+                "type": "JSON",
+                "header": "Link",
+                "path": "_links.self"
+            },
+            {
+                "type": "JSON",
+                "header": "Last Updated Date",
+                "path": "history.lastUpdated.when"
+            },
+            {
+                "type": "JSON",
+                "header": "Last Updated By",
+                "path": "history.lastUpdated.by.displayName"
+            },
+            {
+                "type": "JSON",
+                "header": "Last Updated Friendly",
+                "path": "history.lastUpdated.friendlyWhen"
+            },
+            {
+                "type": "JSON",
+                "header": "Created Date",
+                "path": "history.createdDate"
+            },
+            {
+                "type": "JSON",
+                "header": "Creator Name",
+                "path": "history.createdBy.displayName"
+            },
+            {
+                "type": "JSON",
+                "header": "Creator Avatar",
+                "path": "history.createdBy.profilePicture.path"
+            },
+            {
+                "type": "JSON",
+                "header": "Creator Email",
+                "path": "history.createdBy.email"
+            },
+            {
+                "type": "JSON",
+                "header": "Space ID",
+                "path": "space.id"
+            },
+            {
+                "type": "JSON",
+                "header": "Space Name",
+                "path": "space.name"
+            },
+            {
+                "type": "JSON",
+                "header": "Space Link",
+                "path": "space._links.self"
+            },
+            {
+                "type": "JSON",
+                "header": "Labels",
+                "path": "metadata.labels.results[*].label"
+            }
+        ]
     },
-    {
-      "function": {
-        "inputHeaders": {
-          "headers": [
-            "Last Updated Date",
-            "Created Date"
-          ]
-        },
-        "plugin": "confluenceBlogs_formatDates",
-        "function": "formatDate"
-      }
-    }
-  ],
-  "mappings": [
-    {
-      "field": "confluenceBlogs_createdDate",
-      "header": "Created Date",
-      "subfieldPath": []
-    },
-    {
-      "field": "name",
-      "header": "Title",
-      "subfieldPath": []
-    },
-    {
-      "field": "confluenceBlogs_lastUpdatedFriendly",
-      "header": "Last Updated Friendly",
-      "subfieldPath": []
-    },
-    {
-      "field": "keywords",
-      "header": "Labels",
-      "subfieldPath": []
-    },
-    {
-      "field": "confluenceBlogs_lastUpdatedDate",
-      "header": "Last Updated Date",
-      "subfieldPath": []
-    },
-    {
-      "field": "confluenceBlogs_spaceURL",
-      "header": "Space Link",
-      "subfieldPath": []
-    },
-    {
-      "field": "confluenceBlogs_creatorEmail",
-      "header": "Creator Email",
-      "subfieldPath": []
-    },
-    {
-      "field": "confluenceBlogs_lastUpdatedBy",
-      "header": "Last Updated By",
-      "subfieldPath": []
-    },
-    {
-      "field": "confluenceBlogs_creatorName",
-      "header": "Creator Name",
-      "subfieldPath": []
-    },
-    {
-      "field": "confluenceBlogs_creatorAvatar",
-      "header": "Creator Avatar",
-      "subfieldPath": [
+    "transforms": [
         {
-          "name": "url"
+            "function": {
+                "inputHeaders": {
+                    "headers": [
+                        "Creator Avatar"
+                    ]
+                },
+                "plugin": "confluenceBlogs_createUrl",
+                "function": "createUrl"
+            }
+        },
+        {
+            "function": {
+                "inputHeaders": {
+                    "headers": [
+                        "Last Updated Date",
+                        "Created Date"
+                    ]
+                },
+                "plugin": "confluenceBlogs_formatDates",
+                "function": "formatDate"
+            }
         }
-      ]
+    ],
+    "mappings": [
+        {
+            "field": "confluenceBlogs_createdDate",
+            "header": "Created Date",
+            "subfieldPath": []
+        },
+        {
+            "field": "name",
+            "header": "Title",
+            "subfieldPath": []
+        },
+        {
+            "field": "confluenceBlogs_lastUpdatedFriendly",
+            "header": "Last Updated Friendly",
+            "subfieldPath": []
+        },
+        {
+            "field": "keywords",
+            "header": "Labels",
+            "subfieldPath": []
+        },
+        {
+            "field": "confluenceBlogs_lastUpdatedDate",
+            "header": "Last Updated Date",
+            "subfieldPath": []
+        },
+        {
+            "field": "confluenceBlogs_spaceURL",
+            "header": "Space Link",
+            "subfieldPath": []
+        },
+        {
+            "field": "confluenceBlogs_creatorEmail",
+            "header": "Creator Email",
+            "subfieldPath": []
+        },
+        {
+            "field": "confluenceBlogs_lastUpdatedBy",
+            "header": "Last Updated By",
+            "subfieldPath": []
+        },
+        {
+            "field": "confluenceBlogs_creatorName",
+            "header": "Creator Name",
+            "subfieldPath": []
+        },
+        {
+            "field": "confluenceBlogs_creatorAvatar",
+            "header": "Creator Avatar",
+            "subfieldPath": [
+                {
+                    "name": "url"
+                }
+            ]
+        },
+        {
+            "field": "confluenceBlogs_spaceID",
+            "header": "Space ID",
+            "subfieldPath": []
+        },
+        {
+            "field": "confluenceBlogs_spaceName",
+            "header": "Space Name",
+            "subfieldPath": []
+        },
+        {
+            "field": "entityId",
+            "header": "ID",
+            "subfieldPath": []
+        },
+        {
+            "field": "bodyV2",
+            "header": "Body",
+            "subfieldPath": []
+        },
+        {
+            "field": "landingPageUrl",
+            "header": "Link",
+            "subfieldPath": []
+        }
+    ],
+    "scheduleConfig": {
+        "customSchedule": {
+            "timeZone": "America/New_York",
+            "startDate": "2021-09-09",
+            "startTime": "15:00",
+            "frequencyType": "HOURLY"
+        },
+        "runMode": "DEFAULT"
     },
-    {
-      "field": "confluenceBlogs_spaceID",
-      "header": "Space ID",
-      "subfieldPath": []
-    },
-    {
-      "field": "confluenceBlogs_spaceName",
-      "header": "Space Name",
-      "subfieldPath": []
-    },
-    {
-      "field": "entityId",
-      "header": "ID",
-      "subfieldPath": []
-    },
-    {
-      "field": "body",
-      "header": "Body",
-      "subfieldPath": []
-    },
-    {
-      "field": "landingPageUrl",
-      "header": "Link",
-      "subfieldPath": []
+    "comprehensiveModeConfig": {
+        "comprehensiveSet": "ENTITIES_CREATED_BY_THIS_CONNECTOR",
+        "actionOnMissingEntities": "DELETE"
     }
-  ],
-  "scheduleConfig": {
-    "customSchedule": {
-      "timeZone": "America/New_York",
-      "startDate": "2021-09-09",
-      "startTime": "15:00",
-      "frequencyType": "HOURLY"
-    },
-    "runMode": "DEFAULT"
-  }
 }
