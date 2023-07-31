@@ -199,7 +199,11 @@
         {
             "field": "bodyV2",
             "header": "Body",
-            "subfieldPath": []
+            "subfieldPath": [
+                {
+          "name": "markdown"
+        }
+            ]
         },
         {
             "field": "landingPageUrl",
