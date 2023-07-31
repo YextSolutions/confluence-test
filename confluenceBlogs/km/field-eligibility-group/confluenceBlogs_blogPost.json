@@ -4,7 +4,7 @@
   "name": "Confluence Blog Post",
   "entityType": "confluenceBlogs_blogPost",
   "fields": [
-    "body",
+    "bodyV2",
     "landingPageUrl",
     "confluenceBlogs_createdDate",
     "confluenceBlogs_creatorAvatar",
